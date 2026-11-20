@@ -1,0 +1,32 @@
+# Rezultate compilare
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+
+# Visual Studio / VS Code / Rider
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userprefs
+
+# NuGet
+*.nupkg
+packages/
+
+# Date sensibile
+appsettings.Development.json
+secrets.json
+.env
+
+# Fisiere ale sistemului de operare
+Thumbs.db
+.DS_Store
+
+# Notitele personale salvate de program
+jurnal.txt
