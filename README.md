@@ -21,4 +21,4 @@ Fișierul `jurnal.txt` este trecut în `.gitignore`, deci notițele personale nu
 Este nevoie de .NET SDK 8.0 sau mai nou.
 
 ## Autor
-Cernopolc Adriana, grupa C-P-253-11
+Cernopolc Adriana C-P-253-11
