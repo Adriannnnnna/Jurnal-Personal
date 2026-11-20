@@ -1,9 +1,28 @@
 using System;
+using System.IO;
 
 namespace Jurnal_Personal
 {
     class Program
     {
+        // Fisierul in care se salveaza notitele (este in .gitignore, nu ajunge pe GitHub)
+        const string FisierJurnal = "jurnal.txt";
+
+        static void AdaugaNotita()
+        {
+            Console.Write("Scrieti notita: ");
+            string text = (Console.ReadLine() ?? "").Trim();
+            if (text == "")
+            {
+                Console.WriteLine("Eroare: notita nu poate fi goala.");
+                return;
+            }
+
+            string linie = $"[{DateTime.Now:dd.MM.yyyy HH:mm}] {text}";
+            File.AppendAllText(FisierJurnal, linie + Environment.NewLine);
+            Console.WriteLine("Notita a fost salvata.");
+        }
+
         static void Main()
         {
             int optiune;
@@ -20,7 +39,7 @@ namespace Jurnal_Personal
 
                 switch (optiune)
                 {
-                    case 1: Console.WriteLine("In lucru..."); break;
+                    case 1: AdaugaNotita(); break;
                     case 2: Console.WriteLine("In lucru..."); break;
                     case 0: break;
                     default: Console.WriteLine("Optiune invalida."); break;
