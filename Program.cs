@@ -44,6 +44,43 @@ namespace Jurnal_Personal
                 Console.WriteLine($"{i + 1}. {notite[i]}");
         }
 
+        static void CautaNotite()
+        {
+            Console.Write("Cuvant cautat: ");
+            string cuvant = (Console.ReadLine() ?? "").Trim();
+            if (cuvant == "")
+            {
+                Console.WriteLine("Eroare: cuvantul nu poate fi gol.");
+                return;
+            }
+
+            int gasite = 0;
+            foreach (string notita in CitesteNotitele())
+            {
+                if (notita.IndexOf(cuvant, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    Console.WriteLine(notita);
+                    gasite++;
+                }
+            }
+            Console.WriteLine($"Notite gasite: {gasite}");
+        }
+
+        static void StergeNotitele()
+        {
+            Console.Write("Sigur stergeti toate notitele? (d/n): ");
+            if ((Console.ReadLine() ?? "").Trim().ToLower() == "d")
+            {
+                if (File.Exists(FisierJurnal))
+                    File.Delete(FisierJurnal);
+                Console.WriteLine("Toate notitele au fost sterse.");
+            }
+            else
+            {
+                Console.WriteLine("Stergerea a fost anulata.");
+            }
+        }
+
         static void Main()
         {
             int optiune;
@@ -53,6 +90,8 @@ namespace Jurnal_Personal
                 Console.WriteLine("\n=== Jurnal-Personal ===");
                 Console.WriteLine("1. Adauga notita");
                 Console.WriteLine("2. Afiseaza notitele");
+                Console.WriteLine("3. Cauta in notite");
+                Console.WriteLine("4. Sterge toate notitele");
                 Console.WriteLine("0. Iesire");
                 Console.Write("Optiunea: ");
                 if (!int.TryParse(Console.ReadLine(), out optiune))
@@ -62,6 +101,8 @@ namespace Jurnal_Personal
                 {
                     case 1: AdaugaNotita(); break;
                     case 2: AfiseazaNotitele(); break;
+                    case 3: CautaNotite(); break;
+                    case 4: StergeNotitele(); break;
                     case 0: break;
                     default: Console.WriteLine("Optiune invalida."); break;
                 }
