@@ -11,9 +11,9 @@ Aplicație consolă în C# care salvează notițe personale într-un fișier tex
 Fișierul `jurnal.txt` este trecut în `.gitignore`, deci notițele personale nu ajung pe GitHub.
 
 ## Cum se rulează
-1. Clonați repository-ul (aveți nevoie de acces, repository-ul este privat):
+1. Clonați repository-ul:
    ```
-   git clone https://github.com/utilizator/Jurnal-Personal.git
+   git clone https://github.com/Adriannnnnna/Jurnal-Personal.git
    ```
 2. Intrați în folder: `cd Jurnal-Personal`
 3. Rulați comanda: `dotnet run`
