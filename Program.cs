@@ -23,6 +23,27 @@ namespace Jurnal_Personal
             Console.WriteLine("Notita a fost salvata.");
         }
 
+        static string[] CitesteNotitele()
+        {
+            if (!File.Exists(FisierJurnal))
+                return new string[0];
+            return File.ReadAllLines(FisierJurnal);
+        }
+
+        static void AfiseazaNotitele()
+        {
+            string[] notite = CitesteNotitele();
+            if (notite.Length == 0)
+            {
+                Console.WriteLine("Jurnalul este gol.");
+                return;
+            }
+
+            Console.WriteLine("=== Notitele mele ===");
+            for (int i = 0; i < notite.Length; i++)
+                Console.WriteLine($"{i + 1}. {notite[i]}");
+        }
+
         static void Main()
         {
             int optiune;
@@ -40,7 +61,7 @@ namespace Jurnal_Personal
                 switch (optiune)
                 {
                     case 1: AdaugaNotita(); break;
-                    case 2: Console.WriteLine("In lucru..."); break;
+                    case 2: AfiseazaNotitele(); break;
                     case 0: break;
                     default: Console.WriteLine("Optiune invalida."); break;
                 }
